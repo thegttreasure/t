@@ -10,7 +10,7 @@ from pyrogram import idle
 
 from main.plugins.main import Bot, userbot
 
-st = "Oii Buddy ðŸ¤¡ __Send me Link of any message to clone it here, For private channel message, Send invite link first.__\n\nDEV: @TheCyberWeapon"
+st = "Hoi Buddy 🤖 __Send me Link of any message to clone it here, For private channel message, Send invite link first.__\n\nDEV: @TheCyberWeapon"
 
 @Worker.on(events.NewMessage(incoming=True, pattern="/start"))
 
