@@ -27,7 +27,7 @@ async def check(userbot, client, link):
         except ValueError:
             return False, "**Invalid Link!**"
         except Exception:
-            return False, "Have you joined the channel?"
+            return False, "Record Not Found In DataBase Please First Join Channel To Save Content From It."
     else:
         try:
             chat = str(link.split("/")[-2])
