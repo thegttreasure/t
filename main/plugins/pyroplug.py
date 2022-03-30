@@ -114,7 +114,7 @@ async def get_msg(userbot, client, sender, edit_id, msg_link, i):
                 )
             await edit.delete()
         except (ChannelBanned, ChannelInvalid, ChannelPrivate, ChatIdInvalid, ChatInvalid):
-            await client.edit_message_text(sender, edit_id, "Record Not In DataFind Please Fist Send Me Channel Or Group Link.")
+            await client.edit_message_text(sender, edit_id, "Record Not Found In Database Please First Send Me Channel Or Group Link.")
             return 
         except Exception as e:
             await client.edit_message_text(sender, edit_id, f'Failed to save: `{msg_link}`')
