@@ -27,7 +27,7 @@ async def check(userbot, client, link):
         except ValueError:
             return False, "**Invalid Link!**"
         except Exception:
-            return False, "Record Not Found In DataBase Please First Join Channel To Save Content From It."
+            return False, "Record Not Found In DataBase Please First Send Me Channel Or Group Link."
     else:
         try:
             chat = str(link.split("/")[-2])
@@ -114,7 +114,7 @@ async def get_msg(userbot, client, sender, edit_id, msg_link, i):
                 )
             await edit.delete()
         except (ChannelBanned, ChannelInvalid, ChannelPrivate, ChatIdInvalid, ChatInvalid):
-            await client.edit_message_text(sender, edit_id, "Have you joined the channel?")
+            await client.edit_message_text(sender, edit_id, "Record Not In DataFind Please Fist Send Me Channel Or Group Link.")
             return 
         except Exception as e:
             await client.edit_message_text(sender, edit_id, f'Failed to save: `{msg_link}`')
