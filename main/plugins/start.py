@@ -19,7 +19,7 @@ st = "Hoi Buddy ðŸ¤– __Send me Link of any message to clone it here, For pr
 @Worker.on(events.NewMessage(incoming=True, pattern="/start"))
 
 async def start(event):
-    if str(update.from_user.id) not in Config.AUTH:
+    if message.from_user.id not in Config.AUTH:
 
         await event.reply("Denied")
         
