@@ -6,7 +6,6 @@ from .. import bot as Worker
 
 from telethon import events, Button, TelegramClient
 
-from config import Config
 from .. import userbot, Bot, AUTH
 from pyrogram import idle
 
