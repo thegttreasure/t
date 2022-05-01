@@ -6,7 +6,8 @@ from .. import bot as Worker
 
 from telethon import events, Button, TelegramClient
 
-from .. import userbot, Bot, AUTH
+from config import Config
+
 from pyrogram import idle
 
 from main.plugins.main import Bot, userbot
@@ -19,7 +20,7 @@ async def start(event):
     if str(update.from_user.id) not in Config.AUTH:
         bot.send_message(
             chat_id=update.chat.id,
-            text="Access Denied",
+            text=Translation.NOT_AUTH_USER_TEXT,
             reply_to_message_id=update.message_id
         )
         return
