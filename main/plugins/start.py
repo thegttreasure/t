@@ -6,26 +6,16 @@ from .. import bot as Worker
 
 from telethon import events, Button, TelegramClient
 
-from config import Config
-
 from pyrogram import idle
-
-from translation import Translation
 
 from main.plugins.main import Bot, userbot
 
-st = "Hoi Buddy ðŸ¤– __Send me Link of any message to clone it here, For private channel message, Send invite link first.__\n\nDEV: @TheCyberWeapon"
+st = "Hoi Buddy 🤖 __Send me Link of any message to clone it here, For private channel message, Send invite link first.__\n\nDEV: @Be4stx"
 
 @Worker.on(events.NewMessage(incoming=True, pattern="/start"))
 
 async def start(event):
 
-    sender = event.message.chat_id
-        if sender not in Config.AUTH:
-
-        await event.reply("Denied")
-        
-        return
     await event.reply(f'{st}', 
 
                       buttons=[
