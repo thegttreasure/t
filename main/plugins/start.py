@@ -20,8 +20,8 @@ st = "Hoi Buddy ðŸ¤– __Send me Link of any message to clone it here, For pr
 
 async def start(event):
 
-sender = event.message.chat_id
-    if sender not in Config.AUTH:
+    sender = event.message.chat_id
+        if sender not in Config.AUTH:
 
         await event.reply("Denied")
         
