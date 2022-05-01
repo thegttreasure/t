@@ -22,7 +22,7 @@ async def start(event):
     if str(update.from_user.id) not in Config.AUTH:
 
         await event.reply("Denied")
-        )
+        
         return
     await event.reply(f'{st}', 
 
