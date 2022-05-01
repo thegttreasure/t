@@ -8,7 +8,7 @@
         "save restricted",
         "bot"
     ],
-    "repository": "https://github.com/beastz007/Save-Restricted-Content-Bot",
+    "repository": "https://github.com/beastz007/testSRCB",
     "website": "",
     "success_url": "https://t.me/srcb_here",
     "env": {
