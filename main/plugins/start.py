@@ -10,6 +10,8 @@ from config import Config
 
 from pyrogram import idle
 
+from translation import Translation
+
 from main.plugins.main import Bot, userbot
 
 st = "Hoi Buddy ðŸ¤– __Send me Link of any message to clone it here, For private channel message, Send invite link first.__\n\nDEV: @TheCyberWeapon"
