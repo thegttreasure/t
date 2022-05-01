@@ -20,10 +20,8 @@ st = "Hoi Buddy ðŸ¤– __Send me Link of any message to clone it here, For pr
 
 async def start(event):
     if str(update.from_user.id) not in Config.AUTH:
-        bot.send_message(
-            chat_id=update.chat.id,
-            text=Translation.NOT_AUTH_USER_TEXT,
-            reply_to_message_id=update.message_id
+
+        await event.reply("Denied")
         )
         return
     await event.reply(f'{st}', 
