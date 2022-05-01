@@ -6,16 +6,24 @@ from .. import bot as Worker
 
 from telethon import events, Button, TelegramClient
 
+from config import Config
+from .. import userbot, Bot, AUTH
 from pyrogram import idle
 
 from main.plugins.main import Bot, userbot
 
-st = "Hoi Buddy 🤖 __Send me Link of any message to clone it here, For private channel message, Send invite link first.__\n\nDEV: @TheCyberWeapon"
+st = "Hoi Buddy ðŸ¤– __Send me Link of any message to clone it here, For private channel message, Send invite link first.__\n\nDEV: @TheCyberWeapon"
 
 @Worker.on(events.NewMessage(incoming=True, pattern="/start"))
 
 async def start(event):
-
+    if str(update.from_user.id) not in Config.AUTH:
+        bot.send_message(
+            chat_id=update.chat.id,
+            text="Access Denied",
+            reply_to_message_id=update.message_id
+        )
+        return
     await event.reply(f'{st}', 
 
                       buttons=[
