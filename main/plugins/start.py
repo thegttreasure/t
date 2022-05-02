@@ -4,6 +4,8 @@ import os
 
 from .. import bot as Worker
 
+from config import Config
+
 from telethon import events, Button, TelegramClient
 
 from pyrogram import idle
@@ -15,7 +17,10 @@ st = "Hoi Buddy 🤖 __Send me Link of any message to clone it here, For private
 @Worker.on(events.NewMessage(incoming=True, pattern="/start"))
 
 async def start(event):
+    if str(event.sender_id) not in Config.AUTH:
 
+    await event.reply("You've already started one batch, wait for it to complete you dumb!")
+    else:
     await event.reply(f'{st}', 
 
                       buttons=[
