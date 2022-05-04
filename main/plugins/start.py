@@ -4,6 +4,8 @@ import os
 
 from .. import bot as Worker
 
+from pyrogram.types import Message
+
 from telethon import events, Button, TelegramClient
 
 from pyrogram import idle
