@@ -10,11 +10,16 @@ from pyrogram import idle
 
 from main.plugins.main import Bot, userbot
 
+from config import Config
+
 st = "Hoi Buddy 🤖 __Send me Link of any message to clone it here, For private channel message, Send invite link first.__\n\nDEV: @TheCyberWeapon"
 
 @Worker.on(events.NewMessage(incoming=True, pattern="/start"))
 
 async def start(event):
+    id = m.from_user.id
+    if id not in Config.AUTH_USERS:
+        return
 
     await event.reply(f'{st}', 
 
