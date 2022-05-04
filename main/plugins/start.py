@@ -20,7 +20,7 @@ st = "Hoi Buddy 🤖 __Send me Link of any message to clone it here, For private
 
 async def start(event,m: Message):
     id = m.from_user.id
-    if id not in Config.AUTH_USERS:
+    if id not in Config.AUTH:
         return
 
     await event.reply(f'{st}', 
