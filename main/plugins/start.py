@@ -16,7 +16,7 @@ st = "Hoi Buddy 🤖 __Send me Link of any message to clone it here, For private
 
 @Worker.on(events.NewMessage(incoming=True, pattern="/start"))
 
-async def start(event):
+async def start(event,m: Message):
     id = m.from_user.id
     if id not in Config.AUTH_USERS:
         return
