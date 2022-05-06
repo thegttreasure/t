@@ -4,24 +4,17 @@ import os
 
 from .. import bot as Worker
 
-from pyrogram.types import Message
-
 from telethon import events, Button, TelegramClient
 
 from pyrogram import idle
 
 from main.plugins.main import Bot, userbot
 
-from config import Config
-
-st = "Hoi Buddy 🤖 __Send me Link of any message to clone it here, For private channel message, Send invite link first.__\n\nDEV: @TheCyberWeapon"
+st = "Hoi Buddy 🤖 __Send me Link of any message to clone it here, For private channel message, Send invite link first.__\n\nDEV: @Be4STX"
 
 @Worker.on(events.NewMessage(incoming=True, pattern="/start"))
 
-async def start(event,m: Message):
-    id = m.from_user.id
-    if id not in Config.AUTH:
-        return
+async def start(event):
 
     await event.reply(f'{st}', 
 
