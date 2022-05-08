@@ -8,7 +8,7 @@ Plugin for both public & private channels!
 import time, os
 
 from .. import bot as Worker
-from .. import userbot, Bot, AUTH
+from .. import userbot, Bot
 from config import Config
 from .. import FORCESUB as fs
 from main.plugins.pyroplug import check, get_bulk_msg
