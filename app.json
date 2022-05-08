@@ -24,7 +24,7 @@
             "description": "Bot token, get it from @BotFather.",
             "value": ""
         },
-        "AUTH": {
+        "AUTH_USERS": {
             "description": "owner user id. who will get access to do batch command",
             "value": ""
         },
