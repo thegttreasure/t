@@ -35,7 +35,8 @@ async def get_pvt_content(event, chat, id):
 async def _batch(event):
 
     if event.sender_id not in Config.AUTH_USERS:
-        return await event.reply("Access Denied⚠️")
+        return await event.reply("__Access Denied ⚠️\n\nContact:@Be4stX__")
+
     # wtf is the use of fsub here if the command is meant for the owner? 
     # well am too lazy to clean 
     s, r = await force_sub(event.client, fs, event.sender_id, ft) 
