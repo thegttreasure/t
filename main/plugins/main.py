@@ -4,6 +4,8 @@ import time, os
 
 from .. import bot as Drone
 
+from config import Config
+
 from .. import userbot, Bot
 
 from .. import FORCESUB as fs
