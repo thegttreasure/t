@@ -32,7 +32,7 @@ async def get_pvt_content(event, chat, id):
     await event.client.send_message(event.chat_id, msg) 
     
 @Worker.on(events.NewMessage(incoming=True, pattern='/batch'))
-async def _batch(event):
+async def _batch(event ,update):
 
     if str(update.from_user.id) in Config.AUTH_USERS:
         return
