@@ -16,6 +16,9 @@ st = "Hoi Buddy 🤖 __Send me Link of any message to clone it here, For private
 
 async def start(event):
 
+    if event.sender_id not in Config.AUTH_USERS:
+        return
+
     await event.reply(f'{st}', 
 
                       buttons=[
