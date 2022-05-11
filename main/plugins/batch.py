@@ -32,9 +32,9 @@ async def get_pvt_content(event, chat, id):
     await event.client.send_message(event.chat_id, msg) 
     
 @Worker.on(events.NewMessage(incoming=True, pattern='/batch'))
-async def _batch(event ,update):
+async def _batch(event):
 
-    if update.from_user.id in Config.AUTH_USERS:
+    if event.sender_id in Config.AUTH_USERS:
         return
     # wtf is the use of fsub here if the command is meant for the owner? 
     # well am too lazy to clean 
