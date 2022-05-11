@@ -21,6 +21,7 @@ async def start(event):
     if event.sender_id not in Config.AUTH_USERS:
         return await event.reply("__Access Denied ⚠️\n\nContact:@Be4stX__")
 
+
     await event.reply(f'{st}', 
 
                       buttons=[
