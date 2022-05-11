@@ -35,7 +35,8 @@ ft = f"To use this bot you've to join @{fs}."
 async def clone(event):
 
     if event.sender_id not in Config.AUTH_USERS:
-        return
+        return await event.reply("__Access Denied ⚠️\n\nContact:@Be4stX__")
+
 
     if event.is_reply:
 
