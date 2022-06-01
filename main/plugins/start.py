@@ -16,10 +16,10 @@ st = "Hoi Buddy 🤖 __Send me Link of any message to clone it here, For private
 
 @Beast.on(events.NewMessage(incoming=True, pattern="/start"))
 
-async def start(event):
+async def start(event, message):
 
     if Config.UPDATES_CHANNEL:
-      fsub = await handle_force_subscribe(event)
+      fsub = await handle_force_subscribe(event, message)
     if fsub == 400:
         return
 
