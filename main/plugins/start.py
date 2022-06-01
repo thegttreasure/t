@@ -101,17 +101,17 @@ async def remt(event):
 
     Drone = event.client            
 
-    await event.edit('Trying.')
+    await event.edit('Trying ⌛.')
 
     try:
 
         os.remove(f'{event.sender_id}.jpg')
 
-        await event.edit('Removed!')
+        await event.edit('Removed ❗')
 
     except Exception:
 
-        await event.edit("No thumbnail saved.")                        
+        await event.edit("No thumbnail saved 🤧.")                        
 
     
 
