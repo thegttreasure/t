@@ -1,13 +1,7 @@
-#Tg:MaheshChauhan/WorkerBots
-#Github.com/Vasusen-code
-
-"""
-Plugin for both public & private channels!
-"""
 
 import time, os
 
-from .. import bot as Worker
+from .. import bot as Beast
 from .. import userbot, Bot
 from config import Config
 from .. import FORCESUB as fs
@@ -31,11 +25,9 @@ async def get_pvt_content(event, chat, id):
     msg = await userbot.get_messages(chat, ids=id)
     await event.client.send_message(event.chat_id, msg) 
     
-@Worker.on(events.NewMessage(incoming=True, pattern='/batch'))
+@Beast.on(events.NewMessage(incoming=True, pattern='/batch'))
 async def _batch(event):
 
-    if event.sender_id not in Config.AUTH_USERS:
-        return await event.reply("__Access Denied ⚠️\n\nContact:@Be4stX__")
 
 
     # wtf is the use of fsub here if the command is meant for the owner? 
