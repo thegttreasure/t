@@ -19,7 +19,7 @@ st = "Hoi Buddy 🤖 __Send me Link of any message to clone it here, For private
 async def start(event):
 
     if Config.UPDATES_CHANNEL:
-      fsub = await handle_force_subscribe(bot, update)
+      fsub = await handle_force_subscribe(event)
     if fsub == 400:
         return
 
