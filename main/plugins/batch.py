@@ -4,7 +4,7 @@ import time, os
 from .. import bot as Beast
 from .. import userbot, Bot
 from config import Config
-from .. import FORCESUB as fs
+from helpers.forcesub import ForceSub
 from main.plugins.pyroplug import check, get_bulk_msg
 from main.plugins.helpers import get_link, screenshot
 
@@ -15,9 +15,8 @@ from pyrogram import Client
 from pyrogram.errors import FloodWait
 
 from ethon.pyfunc import video_metadata
-from ethon.telefunc import force_sub
 
-ft = f"To use this bot you've to join @{fs}."
+
 
 batch = []
 
@@ -32,8 +31,9 @@ async def _batch(event):
 
     # wtf is the use of fsub here if the command is meant for the owner? 
     # well am too lazy to clean 
-    s, r = await force_sub(event.client, fs, event.sender_id, ft) 
-    if s == True:
+    Fsub, r = await force_sub(event.client, Fsub, event.sender_id, ft) 
+    if Fsub == 400:
+        return
         await event.reply(r)
         return       
     if f'{event.sender_id}' in batch:
