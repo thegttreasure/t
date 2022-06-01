@@ -28,7 +28,7 @@ from main.plugins.helpers import get_link, join, screenshot
 async def clone(event):
 
     if Config.UPDATES_CHANNEL:
-      fsub = await handle_force_subscribe(bot, update)
+      fsub = await handle_force_subscribe(event)
     if fsub == 400:
         return
     if event.is_reply:
