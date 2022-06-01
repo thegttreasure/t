@@ -4,7 +4,6 @@ import time, os
 from .. import bot as Beast
 from .. import userbot, Bot
 from config import Config
-from helpers.forcesub import ForceSub
 from main.plugins.pyroplug import check, get_bulk_msg
 from main.plugins.helpers import get_link, screenshot
 
@@ -15,7 +14,7 @@ from pyrogram import Client
 from pyrogram.errors import FloodWait
 
 from ethon.pyfunc import video_metadata
-
+from functions.forcesub import handle_force_subscribe
 
 
 batch = []
@@ -31,8 +30,9 @@ async def _batch(event):
 
     # wtf is the use of fsub here if the command is meant for the owner? 
     # well am too lazy to clean 
-    Fsub, r = await force_sub(event.client, Fsub, event.sender_id, ft) 
-    if Fsub == 400:
+        if Config.UPDATES_CHANNEL:
+      fsub = await handle_force_subscribe(bot, update)
+      if fsub == 400:
         return
         await event.reply(r)
         return       
