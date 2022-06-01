@@ -1,8 +1,6 @@
-#Github.com/Vasusen-code
-
 import os
 
-from .. import bot as Worker
+from .. import bot as Beast
 
 from config import Config
 
@@ -14,21 +12,18 @@ from main.plugins.main import Bot, userbot
 
 st = "Hoi Buddy 🤖 __Send me Link of any message to clone it here, For private channel message, Send invite link first.__\n\nDEV: @Be4STX"
 
-@Worker.on(events.NewMessage(incoming=True, pattern="/start"))
+@Beast.on(events.NewMessage(incoming=True, pattern="/start"))
 
 async def start(event):
-
-    if event.sender_id not in Config.AUTH_USERS:
-        return await event.reply("__Access Denied ⚠️\n\nContact:@Be4stX__")
 
 
     await event.reply(f'{st}', 
 
                       buttons=[
 
-                              [Button.inline("SET THUMB.", data="set"),
+                              [Button.inline("🆕 SET THUMBNAIL.", data="set"),
 
-                               Button.inline("REM THUMB.", data="rem")]
+                               Button.inline("❗ REMOVE THUMBNAIL.", data="rem")]
 
                               ])
 
@@ -52,7 +47,7 @@ async def start(event):
 
     
 
-@Worker.on(events.callbackquery.CallbackQuery(data="set"))
+@Beast.on(events.callbackquery.CallbackQuery(data="set"))
 
 async def sett(event):    
 
@@ -100,7 +95,7 @@ async def sett(event):
 
         
 
-@Worker.on(events.callbackquery.CallbackQuery(data="rem"))
+@Beast.on(events.callbackquery.CallbackQuery(data="rem"))
 
 async def remt(event):  
 
