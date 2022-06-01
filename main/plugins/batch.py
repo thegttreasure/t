@@ -30,9 +30,9 @@ async def _batch(event):
 
     # wtf is the use of fsub here if the command is meant for the owner? 
     # well am too lazy to clean 
-        if Config.UPDATES_CHANNEL:
+    if Config.UPDATES_CHANNEL:
       fsub = await handle_force_subscribe(bot, update)
-      if fsub == 400:
+    if fsub == 400:
         return
         await event.reply(r)
         return       
