@@ -16,14 +16,14 @@ st = "Hoi Buddy 🤖 __Send me Link of any message to clone it here, For private
 
 @Beast.on(events.NewMessage(incoming=True, pattern="/start"))
 
-async def start(event, message):
+async def start(bot, update):
 
     if Config.UPDATES_CHANNEL:
-      fsub = await handle_force_subscribe(event, message)
+      fsub = await handle_force_subscribe(bot, update)
     if fsub == 400:
         return
 
-    await event.reply(f'{st}', 
+    await update.reply(f'{st}', 
 
                       buttons=[
 
@@ -55,15 +55,15 @@ async def start(event, message):
 
 @Beast.on(events.callbackquery.CallbackQuery(data="set"))
 
-async def sett(event):    
+async def sett(update, bot):    
 
-    Drone = event.client                    
+    Drone = update.client                    
 
-    button = await event.get_message()
+    button = await update.get_message()
 
     msg = await button.get_reply_message() 
 
-    await event.delete()
+    await update.delete()
 
     async with Drone.conversation(event.chat_id) as conv: 
 
@@ -87,15 +87,15 @@ async def sett(event):
 
         await xx.delete()
 
-        t = await event.client.send_message(event.chat_id, 'Trying.')
+        t = await update.client.send_message(event.chat_id, 'Trying.')
 
-        path = await event.client.download_media(x.media)
+        path = await update.client.download_media(x.media)
 
-        if os.path.exists(f'{event.sender_id}.jpg'):
+        if os.path.exists(f'{update.sender_id}.jpg'):
 
-            os.remove(f'{event.sender_id}.jpg')
+            os.remove(f'{update.sender_id}.jpg')
 
-        os.rename(path, f'./{event.sender_id}.jpg')
+        os.rename(path, f'./{update.sender_id}.jpg')
 
         await t.edit("Temporary thumbnail saved!")
 
@@ -103,9 +103,9 @@ async def sett(event):
 
 @Beast.on(events.callbackquery.CallbackQuery(data="rem"))
 
-async def remt(event):  
+async def remt(update, bot):  
 
-    Drone = event.client            
+    Drone = update.client            
 
     await event.edit('Trying ⌛.')
 
@@ -113,11 +113,11 @@ async def remt(event):
 
         os.remove(f'{event.sender_id}.jpg')
 
-        await event.edit('Removed ❗')
+        await update.edit('Removed ❗')
 
     except Exception:
 
-        await event.edit("No thumbnail saved 🤧.")                        
+        await update.edit("No thumbnail saved 🤧.")                        
 
     
 
