@@ -1,14 +1,14 @@
-#Github.com/Vasusen-code
+
 
 import time, os
 
-from .. import bot as Drone
+from .. import bot as Beast
 
 from config import Config
 
 from .. import userbot, Bot
 
-from .. import FORCESUB as fs
+from helpers.forcesub import ForceSub
 
 from main.plugins.pyroplug import get_msg
 
@@ -22,22 +22,14 @@ from ethon.telefunc import fast_upload, fast_download, force_sub
 
 from main.plugins.helpers import get_link, join, screenshot
 
-ft = f"To use this bot you've to join @{fs}."
 
-# To-Do:
-
-# Make these codes shorter and clean
-
-# ofc will never do it. 
-
-@Drone.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
+@Beast.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
 
 async def clone(event):
 
-    if event.sender_id not in Config.AUTH_USERS:
-        return await event.reply("__Access Denied ⚠️\n\nContact:@Be4stX__")
-
-
+    Fsub = await ForceSub(event)
+    if Fsub == 400:
+        return
     if event.is_reply:
 
         return
