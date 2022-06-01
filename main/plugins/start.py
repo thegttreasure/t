@@ -4,6 +4,8 @@ from .. import bot as Beast
 
 from config import Config
 
+from helpers.forcesub import ForceSub
+
 from telethon import events, Button, TelegramClient
 
 from pyrogram import idle
