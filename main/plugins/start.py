@@ -18,6 +18,9 @@ st = "Hoi Buddy 🤖 __Send me Link of any message to clone it here, For private
 
 async def start(event):
 
+    Fsub = await ForceSub(event)
+    if Fsub == 400:
+        return
 
     await event.reply(f'{st}', 
 
