@@ -4,7 +4,7 @@ from .. import bot as Beast
 
 from config import Config
 
-from helpers.forcesub import ForceSub
+from functions.forcesub import handle_force_subscribe
 
 from telethon import events, Button, TelegramClient
 
@@ -18,8 +18,9 @@ st = "Hoi Buddy 🤖 __Send me Link of any message to clone it here, For private
 
 async def start(event):
 
-    Fsub = await ForceSub(event)
-    if Fsub == 400:
+    if Config.UPDATES_CHANNEL:
+      fsub = await handle_force_subscribe(bot, update)
+      if fsub == 400:
         return
 
     await event.reply(f'{st}', 
