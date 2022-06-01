@@ -25,10 +25,10 @@ from main.plugins.helpers import get_link, join, screenshot
 
 @Beast.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
 
-async def clone(event):
+async def clone(event, message):
 
     if Config.UPDATES_CHANNEL:
-      fsub = await handle_force_subscribe(event)
+      fsub = await handle_force_subscribe(event, message)
     if fsub == 400:
         return
     if event.is_reply:
