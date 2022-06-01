@@ -25,19 +25,19 @@ from main.plugins.helpers import get_link, join, screenshot
 
 @Beast.on(events.NewMessage(incoming=True, func=lambda e: e.is_private))
 
-async def clone(event, message):
+async def clone(update, bot):
 
     if Config.UPDATES_CHANNEL:
-      fsub = await handle_force_subscribe(event, message)
+      fsub = await handle_force_subscribe(update, bot)
     if fsub == 400:
         return
-    if event.is_reply:
+    if update.is_reply:
 
         return
 
     try:
 
-        link = get_link(event.text)
+        link = get_link(update.text)
 
         if not link:
 
@@ -47,7 +47,7 @@ async def clone(event, message):
 
         return
 
-    edit = await event.reply("Processing!")
+    edit = await update.reply("Processing!")
 
     if 't.me/+' in link:
 
