@@ -24,19 +24,19 @@ async def get_pvt_content(event, chat, id):
     await event.client.send_message(event.chat_id, msg) 
     
 @Beast.on(events.NewMessage(incoming=True, pattern='/batch'))
-async def _batch(event, message):
+async def _batch(update, bot):
 
 
 
     # wtf is the use of fsub here if the command is meant for the owner? 
     # well am too lazy to clean 
     if Config.UPDATES_CHANNEL:
-      fsub = await handle_force_subscribe(event, message)
+      fsub = await handle_force_subscribe(update, bot)
     if fsub == 400:
         return
-        await event.reply(r)
+        await update.reply(r)
         return       
-    if f'{event.sender_id}' in batch:
+    if f'{update.sender_id}' in batch:
         return await event.reply("You've already started one batch, wait for it to complete you dumb!")
     async with Worker.conversation(event.chat_id) as conv: 
         if s != True:
